@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/test.gd" type="Script" id=2]
+[ext_resource path="res://scenes/endArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/explosiveBarrel.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1080.98, 70.9383 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 408.372, 73.5114 )
+
+[node name="Test" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 81.6759, 262.663 )
+rotation = 1.8134
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 868.399, 113.332 )
+rotation = 0.0802851
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2084.43, -90.9996 )
+rotation = -0.928515
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 3049.17, -575.769 )
+rotation = -2.22704
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 902.737, 1071.93 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2510.89, 514.002 )
+rotation = 2.30034
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1302.06, -666.45 )
+rotation = 0.312414
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1825.23, -1208.82 )
+rotation = 0.312414
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -172.999, 456.086 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="EndArea" parent="." instance=ExtResource( 3 )]
+position = Vector2( 581.736, -1263.59 )
+rotation = -0.842994
+
+[node name="Spikes" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3075.6, -403.619 )
+rotation = 0.972148
+
+[node name="Spikes2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2492.74, -902.666 )
+rotation = 0.300197
+
+[node name="Spikes3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 980.732, -851.412 )
+rotation = -2.78031
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.129412, 0.129412, 0.129412, 1 )
+antialiased = true
+polygon = PoolVector2Array( -246.668, -53.4611, -238.916, 1151.5, 2054.42, 1143.88, 3362.58, -293.437, 2865.85, -943.741, 823.942, -1602.79, 782.037, -1473.27, 2774.42, -825.646, 3162.99, -311.36, 1980, 1003.68, -103.811, 999.873, -100.002, 104.634, 1943.81, 274.158, 1947.62, 224.634, 2389.52, -375.366, 2269.52, -462.985, 2252.38, -432.508, 296.189, -1064.89, 252.379, -927.747, 2159.05, -314.413, 1837.14, 119.872 )
+
+[node name="ExplosiveBarrel" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2257.95, 471.126 )
+
+[node name="ExplosiveBarrel4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1804.18, 385.509 )
+
+[node name="ExplosiveBarrel2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2380.67, -145.32 )
+
+[node name="ExplosiveBarrel3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1644.36, -901.609 )
+
+[node name="ExplosiveBarrel5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1520.48, -949.123 )
+
+[connection signal="player_finished" from="EndArea" to="." method="_on_EndArea_player_finished"]
